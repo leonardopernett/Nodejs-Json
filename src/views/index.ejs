@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/header.ejs') -%>
+</head>
+<body>
+<%- include('partials/nav.ejs')-%>
+     <div class="container mt-5">
+         <div class="row">
+          <div class="col-md-3">
+            <% books.forEach(function (element){ %>
+                <div class="card m-3">
+                  <div class="card-header">
+                      <h4><%= element.title%></h4>  
+                  </div>  
+                      <div class="card-body">
+                          <img src="<%= element.image%>" class="card-img-top">
+                          <p><%= element.author%></p>
+                          <p><%= element.description%></p>
+                      </div> 
+                      <div class="card-footer">
+                           <a href="api/delete/<%=element.id%>" class="btn btn-danger">danger</a>
+                        </div>
+               </div>
+             <% }) %>     
+          </div> 
+         </div>
+     </div>
+</body>
+</html>
